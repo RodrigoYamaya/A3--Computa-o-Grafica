@@ -1,46 +1,333 @@
 import numpy as np
 
-def compute_faces_normals(vertices_pos, faces):
-    faces = np.asarray(faces, dtype=np.int32).reshape(-1, 3)
-    p0 = vertices_pos[faces[:, 0]]
-    p1 = vertices_pos[faces[:, 1]]
-    p2 = vertices_pos[faces[:, 2]]
-    
-    face_normals = np.cross(p1 - p0, p2 - p0)
-    norms = np.linalg.norm(face_normals, axis=1, keepdims=True)
-    face_normals = face_normals / (norms + 1e-9)
-    
-    return face_normals.astype(np.float32)
+from FbxCommon import *
 
-def compute_vertices_normals(vertices_pos, faces):
-    faces = np.asarray(faces, dtype=np.int32).reshape(-1, 3)
-    p0 = vertices_pos[faces[:, 0]]
-    p1 = vertices_pos[faces[:, 1]]
-    p2 = vertices_pos[faces[:, 2]]
+debug_fbx = False
+
+
+def load_obj_file(obj_file_path):
+    vertices_pos = []
+    vertices_normals = []
+    vertices_texcoords = []
+    faces = []
+
+    lines = []
+    with open(obj_file_path, 'r') as f:
+        lines = f.readlines()
+
+    for line in lines:
+        if line.startswith('v '):
+            parts = line.split()
+            vertices_pos.append([float(parts[1]), float(parts[2]), float(parts[3])])
+        elif line.startswith('vn '):
+            parts = line.split()
+            vertices_normals.append([float(parts[1]), float(parts[2]), float(parts[3])])
+        elif line.startswith('vt '):
+            parts = line.split()
+            vertices_texcoords.append([float(parts[1]), float(parts[2])])
+        elif line.startswith('f '):
+            parts = line.split()
+            face_indices = []
+            for p in parts[1:]:
+                # Handle different face formats (e.g., v, v/vt, v/vt/vn, v//vn)
+                indices = [int(i) - 1 for i in p.split('/') if i] # -1 for 0-based indexing
+                face_indices.append(indices)
+            faces.append(face_indices)
+
+    return np.array(vertices_pos, dtype=np.float32), \
+        np.array(vertices_normals, dtype=np.float32), \
+        np.array(vertices_texcoords, dtype=np.float32), \
+        np.array(faces, dtype=np.uint32)
+
+
+def load_fbx_node_geometry(node):
+    vertices_pos = []
+    vertices_normals = []
+    faces = []
+
+    mesh = node.GetMesh()
+    if debug_fbx:
+        print('\tMesh Name: ', mesh.GetName())
+
+    normal_element = mesh.GetElementNormal()
+    has_normals = normal_element is not None
+
+    control_points = mesh.GetControlPoints()
+
+    num_polygons = mesh.GetPolygonCount()
+    if debug_fbx:
+        print('\tMesh num polygons: {0}'.format(num_polygons))
+
+    vertex_index = 0
+    for i in range(num_polygons):
+        num_polygon_points = mesh.GetPolygonSize(i)
+
+        if debug_fbx:
+            print('\t\tPolygon {0}: {1} points'.format(i, num_polygon_points))
+
+        face_vertices_pos = []
+        face_vertices_normals = []
+        face = []
+
+        polygon_indices = [mesh.GetPolygonVertex(i, j) for j in range(num_polygon_points)]
+        for j in range(1, num_polygon_points - 1):
+            triangle = [polygon_indices[0], polygon_indices[j], polygon_indices[j + 1]]
+            
+            for point_index in triangle:
+                point = control_points[point_index]
+                face_vertices_pos.append([point[0], point[1], point[2]])
+
+                if has_normals:
+                    normal = None
+
+                    mapping = normal_element.GetMappingMode()
+                    reference = normal_element.GetReferenceMode()
+
+                    if mapping == FbxLayerElement.EMappingMode.eByControlPoint:
+                        if reference == FbxLayerElement.EReferenceMode.eDirect:
+                            normal = normal_element.GetDirectArray().GetAt(point_index)
+
+                        else:
+                            normal_index = normal_element.GetIndexArray().GetAt(point_index)
+                            normal = normal_element.GetDirectArray().GetAt(normal_index)
+                    
+                    elif mapping == FbxLayerElement.EMappingMode.eByPolygonVertex:
+                        if reference == FbxLayerElement.EReferenceMode.eDirect:
+                            normal = normal_element.GetDirectArray().GetAt(vertex_index)
+
+                        else:
+                            normal_index = normal_element.GetIndexArray().GetAt(vertex_index)
+                            normal = normal_element.GetDirectArray().GetAt(normal_index)
+                    if normal is not None:
+                        face_vertices_normals.append([normal[0], normal[1], normal[2]])
+
+                vertex_index += 1
+
+            face.append([[vertex_index - 3], [vertex_index - 2], [vertex_index - 1]])
+
+        vertices_pos.extend(face_vertices_pos)
+        vertices_normals.extend(face_vertices_normals)
+        faces.extend(face)
+
+    return vertices_pos, vertices_normals, faces
+
+
+def load_fbx_geometry(scene):
+    vertices_pos = []
+    vertices_normals = []
+    faces = []
+
+    root_node = scene.GetRootNode()
+
+    if root_node:
+        if debug_fbx:
+            print('Root node num child: {0}'.format(root_node.GetChildCount()))
+
+        for i in range(root_node.GetChildCount()):
+            node = root_node.GetChild(i)
+            attrib_type = node.GetNodeAttribute().GetAttributeType()
+            if attrib_type != FbxNodeAttribute.EType.eMesh:
+                continue
+
+            node_vertices_pos, node_vertice_normals, node_faces = load_fbx_node_geometry(node)
+
+            if len(node_vertices_pos) > 0:
+                valor = len(vertices_pos)
+                node_faces = [[[f[0][0] + valor], [f[1][0] + valor], [f[2][0] + valor]] for f in node_faces]
+
+                vertices_pos.extend(node_vertices_pos)
+                vertices_normals.extend(node_vertice_normals)
+                faces.extend(node_faces)
+
+    return np.array(vertices_pos, dtype=np.float32), np.array(vertices_normals, dtype=np.float32), np.array(faces, dtype=np.uint32)
+
+
+def load_fbx_model(filepath):
+    # Prepare the FBX SDK & load the scene
+    sdk_manager, scene = InitializeSdkObjects()
+    result = LoadScene(sdk_manager, scene, filepath)
+    if not result:
+        print('An error occurred while loading the scene...')
+        return None, None, None, None
+
+    print('Load scene...')
+    vertices_pos, vertices_normals, faces = load_fbx_geometry(scene)
+    faces_normals = compute_faces_normals(vertices_pos, faces)
     
-    face_normals = np.cross(p1 - p0, p2 - p0)
-    norms = np.linalg.norm(face_normals, axis=1, keepdims=True)
-    face_normals = face_normals / (norms + 1e-9)
-    
-    vertices_normals = np.zeros_like(vertices_pos)
-    np.add.at(vertices_normals, faces[:, 0], face_normals)
-    np.add.at(vertices_normals, faces[:, 1], face_normals)
-    np.add.at(vertices_normals, faces[:, 2], face_normals)
-    
-    norms = np.linalg.norm(vertices_normals, axis=1, keepdims=True)
-    vertices_normals = vertices_normals / (norms + 1e-9)
-    
-    return vertices_normals.astype(np.float32)
+    if (len(vertices_normals) == 0):
+        vertices_normals = compute_vertices_normals(vertices_pos, faces)
+
+    bounding_box = compute_bounding_box(vertices_pos, faces)
+
+    bounding_box_sizes = bounding_box[1] - bounding_box[0]
+    if max(bounding_box_sizes) > 100000:
+        vertices_pos = vertices_pos * 0.001
+        bounding_box = bounding_box * 0.001
+
+    return vertices_pos, vertices_normals, faces, faces_normals
+
 
 def compute_bounding_box(vertices_pos, faces):
-    faces = np.asarray(faces, dtype=np.int32)
-    if faces.ndim == 3:
-        faces = faces[..., 0]
+    """
+    Alguns arquivos OBJs contem vertices não utilizados pelas faces.
+    Então, primeiro gerei uma coleção com os vértices utilizados.
     
-    used_vertices = vertices_pos[faces.ravel()]
+    Cada bbox é uma lista com dois pontos:
+        [ [xmin, ymin, zmin], [xmax, ymax, zmax] ]
+    """
+
+    used_vertices = []
+    for face in faces:
+        for face_vertex in face:
+            vertex_index = face_vertex[0]
+            vertex = vertices_pos[vertex_index]
+            used_vertices.append(vertex)
+
     xv, yv, zv = zip(*used_vertices)
+
+    min_x, max_x = min(xv), max(xv)
+    min_y, max_y = min(yv), max(yv)
+    min_z, max_z = min(zv), max(zv)
+
+    return np.array([[min_x, min_y, min_z], [max_x, max_y, max_z]], dtype=np.float32)
+
+
+def union_bounding_boxes(bbox1, bbox2):
+    """
+    Calcula a união de dois bounding boxes 3D.
     
-    return np.array([
-        [min(xv), min(yv), min(zv)],
-        [max(xv), max(yv), max(zv)]
+    Cada bbox é uma lista com dois pontos:
+        [ [xmin, ymin, zmin], [xmax, ymax, zmax] ]
+    """
+    bbox1_min, bbox1_max = bbox1
+    bbox2_min, bbox2_max = bbox2
+
+    bbox_min = np.minimum(bbox1_min, bbox2_min) 
+    bbox_max = np.maximum(bbox1_max, bbox2_max)
+
+    return [bbox_min, bbox_max]
+
+
+def translate_bounding_box(bbox, displacement):
+    """
+    Translada um bounding box 3D pelo vetor displacement: [dx, dy, dz].
+    
+    bbox: [[xmin, ymin, zmin], [xmax, ymax, zmax]]
+    Retorna um novo bbox transladado.
+    """
+    bbox_min, bbox_max = bbox
+
+    return [bbox_min + displacement, bbox_max + displacement]
+
+
+def get_bounding_box_center(bbox):
+    """
+    Calcula o centro de um bounding box 3D.
+    
+    bbox: [[xmin, ymin, zmin], [xmax, ymax, zmax]]
+    Retorna uma lista [cx, cy, cz] com o centro.
+    """
+    bbox_min, bbox_max = bbox
+    center = (bbox_min + bbox_max) / 2.0
+
+    return center
+
+
+def compute_faces_normals(vertices_pos, faces):
+    faces_normals = []
+
+    for face in faces:
+        # pega os vértices da face
+        p0 = vertices_pos[face[0][0]]
+        p1 = vertices_pos[face[1][0]]
+        p2 = vertices_pos[face[2][0]]
+
+        # calcula vetores das arestas
+        u = p1 - p0
+        w = p2 - p0
+
+        # normal da face
+        face_normal = np.cross(u, w)
+
+        norm = np.linalg.norm(face_normal)
+        if norm > 1e-8:
+            face_normal = face_normal / norm
+
+        faces_normals.append(face_normal)
+
+    return np.array(faces_normals, dtype=np.float32)
+
+
+def compute_vertices_normals(vertices_pos, faces):
+    vertices_normals = np.zeros_like(vertices_pos)
+
+    faces_normals = compute_faces_normals(vertices_pos, faces)
+    for i in range(len(faces)):
+        face = faces[i]
+        face_normal = faces_normals[i]
+
+        for j in range(len(face)):
+            vertices_normals[face[j]] += face_normal
+
+    normals_normalized = []
+    for normal in vertices_normals:
+        norm = np.linalg.norm(normal)
+        if norm > 1e-8:
+            normal = normal / norm
+        normals_normalized.append(normal.tolist())
+
+    return np.array(normals_normalized, dtype=np.float32)
+
+
+def compute_camera_position(bouding_box, fov_y_deg=45.0, aspect_ratio=1.0, up=[0,1,0]):
+    """
+    Calcula a posição da câmera para visualizar o modelo dentro do bounding box.
+
+    bbox_min : (x_min, y_min, z_min)
+    bbox_max : (x_max, y_max, z_max)
+    fov_y_deg : campo de visão vertical em graus
+    aspect_ratio : proporção largura/altura da tela
+    up : vetor 'up' da câmera
+    """
+
+    bbox_min, bbox_max = bouding_box
+
+    # Centro do bounding box
+    bbox_center = get_bounding_box_center(bouding_box)
+    
+    # Raio da esfera que engloba o bbox
+    radius = np.linalg.norm(bbox_max - bbox_center)
+
+    # Converte FOV para radianos
+    fov_y = np.radians(fov_y_deg)
+
+    # Distância necessária da câmera para caber o objeto na vertical
+    dist_y = radius / np.sin(fov_y / 2.0)
+
+    # Ajuste também considerando o aspecto (horizontal)
+    fov_x = 2.0 * np.arctan(np.tan(fov_y/2.0) * aspect_ratio)
+    dist_x = radius / np.sin(fov_x / 2.0)
+
+    # Pega a maior distância necessária
+    distance = max(dist_x, dist_y)
+
+    # Define posição da câmera olhando no -Z (padrão OpenGL clássico)
+    camera_pos = bbox_center + np.array([0, 0, distance], dtype=np.float32)
+
+    far = 3 * distance
+
+    return camera_pos, bbox_center, np.array(up), far
+
+
+def get_rotate_matrix(angle_rotate_rads, rotate_axis):
+    cos_angle = np.cos(angle_rotate_rads)
+    sin_angle = np.sin(angle_rotate_rads)
+
+    # Matriz de rotação usando o Teorema de Rodrigues
+    rotate_matrix = np.array([
+        [cos_angle + rotate_axis[0]**2 * (1 - cos_angle), rotate_axis[0] * rotate_axis[1] * (1 - cos_angle) - rotate_axis[2] * sin_angle, rotate_axis[0] * rotate_axis[2] * (1 - cos_angle) + rotate_axis[1] * sin_angle],
+        [rotate_axis[1] * rotate_axis[0] * (1 - cos_angle) + rotate_axis[2] * sin_angle, cos_angle + rotate_axis[1]**2 * (1 - cos_angle), rotate_axis[1] * rotate_axis[2] * (1 - cos_angle) - rotate_axis[0] * sin_angle],
+        [rotate_axis[2] * rotate_axis[0] * (1 - cos_angle) - rotate_axis[1] * sin_angle, rotate_axis[2] * rotate_axis[1] * (1 - cos_angle) + rotate_axis[0] * sin_angle, cos_angle + rotate_axis[2]**2 * (1 - cos_angle)]
     ], dtype=np.float32)
+
+    return rotate_matrix

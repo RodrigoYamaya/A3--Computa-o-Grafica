@@ -2,13 +2,17 @@ from fbx import *
 import sys
 
 def InitializeSdkObjects():
+    # The first thing to do is to create the FBX SDK manager which is the 
+    # object allocator for almost all the classes in the SDK.
     lSdkManager = FbxManager.Create()
     if not lSdkManager:
         sys.exit(0)
         
+    # Create an IOSettings object
     ios = FbxIOSettings.Create(lSdkManager, IOSROOT)
     lSdkManager.SetIOSettings(ios)
     
+    # Create the entity that will hold the scene.
     lScene = FbxScene.Create(lSdkManager, "")
     
     return (lSdkManager, lScene)
@@ -39,7 +43,7 @@ def SaveScene(pSdkManager, pScene, pFilename, pFileFormat = -1, pEmbedMedia = Fa
     pSdkManager.GetIOSettings().SetBoolProp(EXP_FBX_GLOBAL_SETTINGS, True)
 
     result = lExporter.Initialize(pFilename, pFileFormat, pSdkManager.GetIOSettings())
-    if result:
+    if result == True:
         result = lExporter.Export(pScene)
 
     lExporter.Destroy()

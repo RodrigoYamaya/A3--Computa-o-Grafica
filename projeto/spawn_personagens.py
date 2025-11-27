@@ -6,8 +6,8 @@ from fbx_loader import load_fbx_model
 MODELS_DIR = "FBX models"
 PERSONAGENS = [
     "Mutant.fbx",
-    "Remy.fbx", 
-    "Standing Torch Light Torch.fbx",
+    "Warrok W Kurniawan.fbx", 
+    "Warzombie F Pedroso.fbx",
     "Vampire A Lusth.fbx"
 ]
 OUTPUT = "cenario_final.fbx"

@@ -1,4 +1,5 @@
 import numpy as np
+import glm
 
 class Instancia:
     def __init__(self, personagem, pos, rot=0, scale=1.0):
@@ -10,15 +11,15 @@ class Instancia:
     def model_matrix(self):
         x, y, z = self.pos
         s = self.scale
-        r = np.radians(self.rot)
-        c = np.cos(r)
-        s_ = np.sin(r)
-        return np.array([
-            [ s*c, 0, s*s_, x],
-            [ 0, s, 0, y],
-            [-s*s_,0, s*c, z],
-            [ 0, 0, 0, 1]
-        ], dtype=np.float32)
+        
+        # Criar matriz com glm
+        model = glm.mat4(1.0)
+        model = glm.translate(model, glm.vec3(x, y, z))
+        model = glm.rotate(model, glm.radians(self.rot), glm.vec3(0, 1, 0))
+        model = glm.scale(model, glm.vec3(s, s, s))
+        
+        # Converter glm para numpy array
+        return np.array(model, dtype=np.float32)
 
 class Cenario:
     def __init__(self):

@@ -130,8 +130,8 @@ class SceneRenderer:
         self.cenario = Cenario()
         personagens_mixamo = [
             "FBX models/Mutant.fbx",
-            "FBX models/Remy.fbx", 
-            "FBX models/Standing Torch Light Torch.fbx",
+            "FBX models/Warrok W Kurniawan.fbx", 
+            "FBX models/Warzombie F Pedroso.fbx",
             "FBX models/Vampire A Lusth.fbx"
         ]
         

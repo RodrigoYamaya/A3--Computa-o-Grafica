@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2025
 		Month: 11
-		Day: 15
-		Hour: 23
-		Minute: 21
-		Second: 38
-		Millisecond: 782
+		Day: 27
+		Hour: 18
+		Minute: 42
+		Second: 55
+		Millisecond: 343
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.3.7"
 	OtherFlags:  {
@@ -78,7 +78,7 @@ GlobalSettings:  {
 
 Documents:  {
 	Count: 1
-	Document: 2343411989088, "", "Scene" {
+	Document: 2122662397760, "", "Scene" {
 		Properties70:  {
 			P: "SourceObject", "object", "", ""
 			P: "ActiveAnimStackName", "KString", "", "", ""
@@ -186,722 +186,722 @@ Definitions:  {
 ;------------------------------------------------------------------
 
 Objects:  {
-	Model: 2343443504880, "Model::Mutant.fbx_inst_0", "Null" {
+	Model: 2122798404480, "Model::Mutant.fbx_inst_0", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",106.217065295142,0,60.9267864279103
+			P: "Lcl Translation", "Lcl Translation", "", "A",131.912627692193,0,-9.03789214462967
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443500880, "Model::Mutant.fbx_inst_1", "Null" {
+	Model: 2122797542560, "Model::Mutant.fbx_inst_1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",124.83514597609,0,-91.1630473033662
+			P: "Lcl Translation", "Lcl Translation", "", "A",-79.1389507118334,0,-79.0418574641503
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443492880, "Model::Mutant.fbx_inst_2", "Null" {
+	Model: 2122797540560, "Model::Mutant.fbx_inst_2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",113.954030687508,0,95.9554432727726
+			P: "Lcl Translation", "Lcl Translation", "", "A",16.9832856179978,0,-26.8760237628471
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443506880, "Model::Mutant.fbx_inst_3", "Null" {
+	Model: 2122797546560, "Model::Mutant.fbx_inst_3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-141.85659781804,0,126.508255419789
+			P: "Lcl Translation", "Lcl Translation", "", "A",110.142685662509,0,131.278244851875
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443494880, "Model::Mutant.fbx_inst_4", "Null" {
+	Model: 2122797538560, "Model::Mutant.fbx_inst_4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-112.341796303799,0,-107.508311685884
+			P: "Lcl Translation", "Lcl Translation", "", "A",122.440443215165,0,28.42667506946
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443496880, "Model::Mutant.fbx_inst_5", "Null" {
+	Model: 2122797534560, "Model::Mutant.fbx_inst_5", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",43.0695543534676,0,60.0610762966756
+			P: "Lcl Translation", "Lcl Translation", "", "A",112.895514986819,0,-72.7771764701938
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443502880, "Model::Mutant.fbx_inst_6", "Null" {
+	Model: 2122797548560, "Model::Mutant.fbx_inst_6", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-124.769761840439,0,25.5581526506982
+			P: "Lcl Translation", "Lcl Translation", "", "A",-23.5424040176146,0,4.76961461058087
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343443498880, "Model::Mutant.fbx_inst_7", "Null" {
+	Model: 2122797544560, "Model::Mutant.fbx_inst_7", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-14.1396445124829,0,-81.513768585099
+			P: "Lcl Translation", "Lcl Translation", "", "A",-54.5603826126823,0,117.849082800871
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475336880, "Model::Mutant.fbx_inst_8", "Null" {
+	Model: 2122797550560, "Model::Mutant.fbx_inst_8", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-120.144278654715,0,69.8819360478978
+			P: "Lcl Translation", "Lcl Translation", "", "A",144.641001783846,0,43.9431980828685
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475332880, "Model::Mutant.fbx_inst_9", "Null" {
+	Model: 2122797536560, "Model::Mutant.fbx_inst_9", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",110.625231742012,0,27.0748015817272
+			P: "Lcl Translation", "Lcl Translation", "", "A",-87.3407591534692,0,101.687332483661
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475328880, "Model::Mutant.fbx_inst_10", "Null" {
+	Model: 2122797554560, "Model::Mutant.fbx_inst_10", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",106.004548973052,0,-26.9763906956709
+			P: "Lcl Translation", "Lcl Translation", "", "A",-27.0539032604743,0,-118.998591514378
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475326880, "Model::Mutant.fbx_inst_11", "Null" {
+	Model: 2122797560560, "Model::Mutant.fbx_inst_11", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",99.3596220725323,0,-67.6975283515229
+			P: "Lcl Translation", "Lcl Translation", "", "A",37.5375873413751,0,-102.494070806622
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475338880, "Model::Mutant.fbx_inst_12", "Null" {
+	Model: 2122797564560, "Model::Mutant.fbx_inst_12", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",110.654886345132,0,-98.2048989626344
+			P: "Lcl Translation", "Lcl Translation", "", "A",74.092865329381,0,30.8495694379463
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475340880, "Model::Mutant.fbx_inst_13", "Null" {
+	Model: 2122797562560, "Model::Mutant.fbx_inst_13", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-102.058976951701,0,92.1103564880692
+			P: "Lcl Translation", "Lcl Translation", "", "A",78.7233886763925,0,118.454873911283
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475342880, "Model::Mutant.fbx_inst_14", "Null" {
+	Model: 2122797556560, "Model::Mutant.fbx_inst_14", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",142.95032522824,0,-48.441029119585
+			P: "Lcl Translation", "Lcl Translation", "", "A",85.3902863204331,0,-66.2976681296909
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475344880, "Model::Mutant.fbx_inst_15", "Null" {
+	Model: 2122797552560, "Model::Mutant.fbx_inst_15", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-61.4410326405589,0,128.057529790413
+			P: "Lcl Translation", "Lcl Translation", "", "A",109.698371109985,0,82.5856920918993
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475330880, "Model::Mutant.fbx_inst_16", "Null" {
+	Model: 2122797558560, "Model::Mutant.fbx_inst_16", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",34.2945133938454,0,91.0036695001432
+			P: "Lcl Translation", "Lcl Translation", "", "A",-42.6349140795157,0,106.059692698082
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475346880, "Model::Mutant.fbx_inst_17", "Null" {
+	Model: 2122796891424, "Model::Mutant.fbx_inst_17", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",138.927485441036,0,132.803515085631
+			P: "Lcl Translation", "Lcl Translation", "", "A",-145.319963326807,0,-5.79753825557884
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475348880, "Model::Mutant.fbx_inst_18", "Null" {
+	Model: 2122796897424, "Model::Mutant.fbx_inst_18", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-3.52758734643172,0,-96.5556874891289
+			P: "Lcl Translation", "Lcl Translation", "", "A",-24.3056499196212,0,-110.391556273089
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475334880, "Model::Mutant.fbx_inst_19", "Null" {
+	Model: 2122796887424, "Model::Mutant.fbx_inst_19", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-32.4709575017777,0,78.5050333265173
+			P: "Lcl Translation", "Lcl Translation", "", "A",107.00083362127,0,41.9963641113551
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475356880, "Model::Remy.fbx_inst_0", "Null" {
+	Model: 2122831969760, "Model::Warrok W Kurniawan.fbx_inst_0", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",7.81385211380311,0,-104.776399768868
+			P: "Lcl Translation", "Lcl Translation", "", "A",-72.5980201268206,0,-122.498369756911
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475352880, "Model::Remy.fbx_inst_1", "Null" {
+	Model: 2122831971760, "Model::Warrok W Kurniawan.fbx_inst_1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-135.878238707146,0,80.9910638473974
+			P: "Lcl Translation", "Lcl Translation", "", "A",-36.4425539160689,0,9.65575534349588
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475350880, "Model::Remy.fbx_inst_2", "Null" {
+	Model: 2122796905424, "Model::Warrok W Kurniawan.fbx_inst_2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-67.0953118738254,0,23.1714329206957
+			P: "Lcl Translation", "Lcl Translation", "", "A",-102.401944436096,0,2.67778349729727
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343475354880, "Model::Remy.fbx_inst_3", "Null" {
+	Model: 2122840128112, "Model::Warrok W Kurniawan.fbx_inst_3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-15.4325241942181,0,6.73905534651067
+			P: "Lcl Translation", "Lcl Translation", "", "A",87.373230578134,0,-106.253853794653
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468242992, "Model::Remy.fbx_inst_4", "Null" {
+	Model: 2122840134112, "Model::Warrok W Kurniawan.fbx_inst_4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",6.3114704875789,0,-107.5114178022
+			P: "Lcl Translation", "Lcl Translation", "", "A",-45.7543591396312,0,-135.470432804429
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468250992, "Model::Remy.fbx_inst_5", "Null" {
+	Model: 2122840136112, "Model::Warrok W Kurniawan.fbx_inst_5", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",39.9630760071389,0,-51.3827937391469
+			P: "Lcl Translation", "Lcl Translation", "", "A",-3.74472504722115,0,58.303859139246
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468252992, "Model::Remy.fbx_inst_6", "Null" {
+	Model: 2122840124112, "Model::Warrok W Kurniawan.fbx_inst_6", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-55.9499569617721,0,-37.5146735470968
+			P: "Lcl Translation", "Lcl Translation", "", "A",-56.5543900644354,0,140.497182138996
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468246992, "Model::Remy.fbx_inst_7", "Null" {
+	Model: 2122840130112, "Model::Warrok W Kurniawan.fbx_inst_7", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",68.2300338755434,0,74.0712731430003
+			P: "Lcl Translation", "Lcl Translation", "", "A",-16.3635114768596,0,139.980812679953
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468248992, "Model::Remy.fbx_inst_8", "Null" {
+	Model: 2122840138112, "Model::Warrok W Kurniawan.fbx_inst_8", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-71.9402193098569,0,19.0808936402241
+			P: "Lcl Translation", "Lcl Translation", "", "A",-7.39725142941285,0,135.914324481331
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468254992, "Model::Remy.fbx_inst_9", "Null" {
+	Model: 2122840132112, "Model::Warrok W Kurniawan.fbx_inst_9", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",60.4819929144446,0,20.3500154041452
+			P: "Lcl Translation", "Lcl Translation", "", "A",-32.1118723794191,0,57.5032358094038
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468244992, "Model::Remy.fbx_inst_10", "Null" {
+	Model: 2122840140112, "Model::Warrok W Kurniawan.fbx_inst_10", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-47.5952293531425,0,55.5868562923507
+			P: "Lcl Translation", "Lcl Translation", "", "A",-65.8667117179656,0,-63.6577441436719
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343468240992, "Model::Remy.fbx_inst_11", "Null" {
+	Model: 2122840126112, "Model::Warrok W Kurniawan.fbx_inst_11", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-80.7755707650356,0,-55.4157384081688
+			P: "Lcl Translation", "Lcl Translation", "", "A",60.1477206433278,0,16.7111105360382
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442030112, "Model::Remy.fbx_inst_12", "Null" {
+	Model: 2122840154112, "Model::Warrok W Kurniawan.fbx_inst_12", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",62.4972492683917,0,-29.4180465021285
+			P: "Lcl Translation", "Lcl Translation", "", "A",-94.0981054935973,0,-126.441433857834
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442042112, "Model::Remy.fbx_inst_13", "Null" {
+	Model: 2122840152112, "Model::Warrok W Kurniawan.fbx_inst_13", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",64.423349754862,0,99.5939765618685
+			P: "Lcl Translation", "Lcl Translation", "", "A",62.4584219127536,0,-79.5382805780802
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442044112, "Model::Remy.fbx_inst_14", "Null" {
+	Model: 2122840156112, "Model::Warrok W Kurniawan.fbx_inst_14", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",141.327446686187,0,-4.7896848504204
+			P: "Lcl Translation", "Lcl Translation", "", "A",7.48623766997258,0,38.9461619494626
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442046112, "Model::Remy.fbx_inst_15", "Null" {
+	Model: 2122840148112, "Model::Warrok W Kurniawan.fbx_inst_15", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",37.0639865412487,0,-38.3837460514721
+			P: "Lcl Translation", "Lcl Translation", "", "A",-20.1171761103533,0,-105.685209047386
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442032112, "Model::Remy.fbx_inst_16", "Null" {
+	Model: 2122840144112, "Model::Warrok W Kurniawan.fbx_inst_16", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-40.0614164064446,0,-45.938523805997
+			P: "Lcl Translation", "Lcl Translation", "", "A",-30.9526763566861,0,-128.132891651846
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442048112, "Model::Remy.fbx_inst_17", "Null" {
+	Model: 2122840142112, "Model::Warrok W Kurniawan.fbx_inst_17", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-146.210805891957,0,-133.009991604827
+			P: "Lcl Translation", "Lcl Translation", "", "A",58.7532419016065,0,-123.601604583889
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442034112, "Model::Remy.fbx_inst_18", "Null" {
+	Model: 2122840158112, "Model::Warrok W Kurniawan.fbx_inst_18", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-117.250263430523,0,-88.9093832942448
+			P: "Lcl Translation", "Lcl Translation", "", "A",-106.255952622255,0,-85.810420863957
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442036112, "Model::Remy.fbx_inst_19", "Null" {
+	Model: 2122840150112, "Model::Warrok W Kurniawan.fbx_inst_19", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-20.5424293853198,0,-143.457936633994
+			P: "Lcl Translation", "Lcl Translation", "", "A",-83.6095846153154,0,139.554340773789
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442038112, "Model::Standing Torch Light Torch.fbx_inst_0", "Null" {
+	Model: 2122838335584, "Model::Warzombie F Pedroso.fbx_inst_0", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",73.7000598015444,0,106.102514775881
+			P: "Lcl Translation", "Lcl Translation", "", "A",-33.2909462210421,0,130.147542047955
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442050112, "Model::Standing Torch Light Torch.fbx_inst_1", "Null" {
+	Model: 2122838337584, "Model::Warzombie F Pedroso.fbx_inst_1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-105.889089293831,0,26.2561826755995
+			P: "Lcl Translation", "Lcl Translation", "", "A",147.607189717393,0,112.895277000348
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442040112, "Model::Standing Torch Light Torch.fbx_inst_2", "Null" {
+	Model: 2122838349584, "Model::Warzombie F Pedroso.fbx_inst_2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",108.049266205477,0,69.4246877750448
+			P: "Lcl Translation", "Lcl Translation", "", "A",54.1996090810898,0,142.066862863166
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442056112, "Model::Standing Torch Light Torch.fbx_inst_3", "Null" {
+	Model: 2122838339584, "Model::Warzombie F Pedroso.fbx_inst_3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",79.1317558127227,0,-43.8519680005845
+			P: "Lcl Translation", "Lcl Translation", "", "A",50.4400300250412,0,-141.819311332237
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442058112, "Model::Standing Torch Light Torch.fbx_inst_4", "Null" {
+	Model: 2122838363584, "Model::Warzombie F Pedroso.fbx_inst_4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-33.1434483227805,0,63.0033162892233
+			P: "Lcl Translation", "Lcl Translation", "", "A",39.254141718029,0,-1.89759008046096
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442054112, "Model::Standing Torch Light Torch.fbx_inst_5", "Null" {
+	Model: 2122838351584, "Model::Warzombie F Pedroso.fbx_inst_5", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-140.397716010419,0,-62.8464939815745
+			P: "Lcl Translation", "Lcl Translation", "", "A",3.6636916505006,0,130.226363154111
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442052112, "Model::Standing Torch Light Torch.fbx_inst_6", "Null" {
+	Model: 2122838365584, "Model::Warzombie F Pedroso.fbx_inst_6", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",2.48589932231704,0,-13.2776133257661
+			P: "Lcl Translation", "Lcl Translation", "", "A",103.67671812074,0,-33.8915565795085
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343442060112, "Model::Standing Torch Light Torch.fbx_inst_7", "Null" {
+	Model: 2122838367584, "Model::Warzombie F Pedroso.fbx_inst_7", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-93.9306922552776,0,-0.0252408031134337
+			P: "Lcl Translation", "Lcl Translation", "", "A",-4.83896801389315,0,136.994755555722
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472464608, "Model::Standing Torch Light Torch.fbx_inst_8", "Null" {
+	Model: 2122838353584, "Model::Warzombie F Pedroso.fbx_inst_8", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-2.2200918309783,0,-110.530496412988
+			P: "Lcl Translation", "Lcl Translation", "", "A",90.0979975160097,0,4.06378573351103
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472476608, "Model::Standing Torch Light Torch.fbx_inst_9", "Null" {
+	Model: 2122838359584, "Model::Warzombie F Pedroso.fbx_inst_9", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-35.4496770231667,0,55.7526654780204
+			P: "Lcl Translation", "Lcl Translation", "", "A",-81.4819903124671,0,100.899535938918
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472470608, "Model::Standing Torch Light Torch.fbx_inst_10", "Null" {
+	Model: 2122838361584, "Model::Warzombie F Pedroso.fbx_inst_10", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-103.898842628017,0,-149.851654191991
+			P: "Lcl Translation", "Lcl Translation", "", "A",91.0609959713212,0,-30.6546076803436
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472480608, "Model::Standing Torch Light Torch.fbx_inst_11", "Null" {
+	Model: 2122838369584, "Model::Warzombie F Pedroso.fbx_inst_11", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-94.230108211162,0,-97.9254931879319
+			P: "Lcl Translation", "Lcl Translation", "", "A",144.27121532867,0,64.6404605478666
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472474608, "Model::Standing Torch Light Torch.fbx_inst_12", "Null" {
+	Model: 2122838357584, "Model::Warzombie F Pedroso.fbx_inst_12", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",135.173738857336,0,-126.149883115282
+			P: "Lcl Translation", "Lcl Translation", "", "A",142.53488752458,0,-70.1778980742365
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472478608, "Model::Standing Torch Light Torch.fbx_inst_13", "Null" {
+	Model: 2122838355584, "Model::Warzombie F Pedroso.fbx_inst_13", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",53.1022237892682,0,97.4378579516004
+			P: "Lcl Translation", "Lcl Translation", "", "A",127.31007219302,0,-59.0599312326642
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472472608, "Model::Standing Torch Light Torch.fbx_inst_14", "Null" {
+	Model: 2122838371584, "Model::Warzombie F Pedroso.fbx_inst_14", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-19.2269953334427,0,-87.0948089833909
+			P: "Lcl Translation", "Lcl Translation", "", "A",-16.6172492377084,0,11.3245859783929
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472466608, "Model::Standing Torch Light Torch.fbx_inst_15", "Null" {
+	Model: 2122838387584, "Model::Warzombie F Pedroso.fbx_inst_15", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-53.0210408176842,0,112.851896917777
+			P: "Lcl Translation", "Lcl Translation", "", "A",133.98046509186,0,40.3777389837483
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472482608, "Model::Standing Torch Light Torch.fbx_inst_16", "Null" {
+	Model: 2122838377584, "Model::Warzombie F Pedroso.fbx_inst_16", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-29.8995674762452,0,29.9384198207235
+			P: "Lcl Translation", "Lcl Translation", "", "A",57.1767482052637,0,144.545963858015
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472468608, "Model::Standing Torch Light Torch.fbx_inst_17", "Null" {
+	Model: 2122838379584, "Model::Warzombie F Pedroso.fbx_inst_17", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-142.001201431964,0,-149.730365603865
+			P: "Lcl Translation", "Lcl Translation", "", "A",111.117221457992,0,76.5223944985344
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472490608, "Model::Standing Torch Light Torch.fbx_inst_18", "Null" {
+	Model: 2122838375584, "Model::Warzombie F Pedroso.fbx_inst_18", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-84.2320005477037,0,-149.327341114248
+			P: "Lcl Translation", "Lcl Translation", "", "A",41.2946994972483,0,65.4619266892989
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472484608, "Model::Standing Torch Light Torch.fbx_inst_19", "Null" {
+	Model: 2122838381584, "Model::Warzombie F Pedroso.fbx_inst_19", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",1.9642736875744,0,-6.2758766023336
+			P: "Lcl Translation", "Lcl Translation", "", "A",-46.7895070908401,0,-32.4136262956232
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472492608, "Model::Vampire A Lusth.fbx_inst_0", "Null" {
+	Model: 2122839882336, "Model::Vampire A Lusth.fbx_inst_0", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",4.0702173171731,0,-73.3920792577294
+			P: "Lcl Translation", "Lcl Translation", "", "A",55.4574537478657,0,54.265455705821
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472494608, "Model::Vampire A Lusth.fbx_inst_1", "Null" {
+	Model: 2122839868336, "Model::Vampire A Lusth.fbx_inst_1", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",44.1093682438407,0,147.252162565303
+			P: "Lcl Translation", "Lcl Translation", "", "A",-35.3095923055446,0,-39.4894253941142
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472486608, "Model::Vampire A Lusth.fbx_inst_2", "Null" {
+	Model: 2122839874336, "Model::Vampire A Lusth.fbx_inst_2", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",89.742715745006,0,-63.7669661378852
+			P: "Lcl Translation", "Lcl Translation", "", "A",114.217102821566,0,-52.051846893625
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343472488608, "Model::Vampire A Lusth.fbx_inst_3", "Null" {
+	Model: 2122839876336, "Model::Vampire A Lusth.fbx_inst_3", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-117.333887597636,0,-138.646793484829
+			P: "Lcl Translation", "Lcl Translation", "", "A",-102.704426985931,0,149.583805904163
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478421264, "Model::Vampire A Lusth.fbx_inst_4", "Null" {
+	Model: 2122839884336, "Model::Vampire A Lusth.fbx_inst_4", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-69.226523785516,0,16.4401224904797
+			P: "Lcl Translation", "Lcl Translation", "", "A",-148.43088182427,0,-107.424007178097
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478409264, "Model::Vampire A Lusth.fbx_inst_5", "Null" {
+	Model: 2122839878336, "Model::Vampire A Lusth.fbx_inst_5", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",37.4567963543965,0,-28.2681762620061
+			P: "Lcl Translation", "Lcl Translation", "", "A",43.1028614498873,0,59.1816109257308
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478413264, "Model::Vampire A Lusth.fbx_inst_6", "Null" {
+	Model: 2122839870336, "Model::Vampire A Lusth.fbx_inst_6", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",4.43725841494762,0,-36.7343745669051
+			P: "Lcl Translation", "Lcl Translation", "", "A",-81.8895395982883,0,122.32346949806
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478415264, "Model::Vampire A Lusth.fbx_inst_7", "Null" {
+	Model: 2122839880336, "Model::Vampire A Lusth.fbx_inst_7", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",105.360462244503,0,-12.8761638257528
+			P: "Lcl Translation", "Lcl Translation", "", "A",-113.985845020463,0,99.2691387912683
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478417264, "Model::Vampire A Lusth.fbx_inst_8", "Null" {
+	Model: 2122839888336, "Model::Vampire A Lusth.fbx_inst_8", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-9.30503138504494,0,137.355328415112
+			P: "Lcl Translation", "Lcl Translation", "", "A",-16.4723910982276,0,1.67975926392043
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478419264, "Model::Vampire A Lusth.fbx_inst_9", "Null" {
+	Model: 2122839890336, "Model::Vampire A Lusth.fbx_inst_9", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-129.583270103109,0,118.315773017026
+			P: "Lcl Translation", "Lcl Translation", "", "A",-94.1484854235279,0,-143.107314141585
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478407264, "Model::Vampire A Lusth.fbx_inst_10", "Null" {
+	Model: 2122839892336, "Model::Vampire A Lusth.fbx_inst_10", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-57.3048389760287,0,93.6783095544084
+			P: "Lcl Translation", "Lcl Translation", "", "A",-101.233950131432,0,113.361159047496
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478411264, "Model::Vampire A Lusth.fbx_inst_11", "Null" {
+	Model: 2122839894336, "Model::Vampire A Lusth.fbx_inst_11", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",144.066538105787,0,-149.527741197076
+			P: "Lcl Translation", "Lcl Translation", "", "A",130.891882929012,0,21.3044345122337
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478427264, "Model::Vampire A Lusth.fbx_inst_12", "Null" {
+	Model: 2122839896336, "Model::Vampire A Lusth.fbx_inst_12", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-143.555438262858,0,-138.202276692711
+			P: "Lcl Translation", "Lcl Translation", "", "A",-139.303276311695,0,-58.2297564136843
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478437264, "Model::Vampire A Lusth.fbx_inst_13", "Null" {
+	Model: 2122839898336, "Model::Vampire A Lusth.fbx_inst_13", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-108.523374895635,0,-35.0316777192281
+			P: "Lcl Translation", "Lcl Translation", "", "A",-145.919990501224,0,-89.4415778599621
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478423264, "Model::Vampire A Lusth.fbx_inst_14", "Null" {
+	Model: 2122839900336, "Model::Vampire A Lusth.fbx_inst_14", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-117.626168092864,0,110.021732467458
+			P: "Lcl Translation", "Lcl Translation", "", "A",-76.5660786682862,0,-58.6462551620744
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478429264, "Model::Vampire A Lusth.fbx_inst_15", "Null" {
+	Model: 2122839886336, "Model::Vampire A Lusth.fbx_inst_15", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-94.2569815317595,0,133.976356845725
+			P: "Lcl Translation", "Lcl Translation", "", "A",-71.067377642898,0,82.8402926090733
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478435264, "Model::Vampire A Lusth.fbx_inst_16", "Null" {
+	Model: 2122839904336, "Model::Vampire A Lusth.fbx_inst_16", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-120.074138558136,0,0.569186315856996
+			P: "Lcl Translation", "Lcl Translation", "", "A",-81.6891663884045,0,94.7294509140746
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478425264, "Model::Vampire A Lusth.fbx_inst_17", "Null" {
+	Model: 2122839902336, "Model::Vampire A Lusth.fbx_inst_17", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",33.1646958389341,0,34.9843311644865
+			P: "Lcl Translation", "Lcl Translation", "", "A",36.9207350496904,0,-134.900709829487
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478433264, "Model::Vampire A Lusth.fbx_inst_18", "Null" {
+	Model: 2122839916336, "Model::Vampire A Lusth.fbx_inst_18", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-64.5338178778436,0,-104.072667348482
+			P: "Lcl Translation", "Lcl Translation", "", "A",129.646245513123,0,65.262287234398
 		}
 		Shading: Y
 		Culling: "CullingOff"
 	}
-	Model: 2343478431264, "Model::Vampire A Lusth.fbx_inst_19", "Null" {
+	Model: 2122839920336, "Model::Vampire A Lusth.fbx_inst_19", "Null" {
 		Version: 232
 		Properties70:  {
 			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
-			P: "Lcl Translation", "Lcl Translation", "", "A",-73.32236237657,0,-130.252650724389
+			P: "Lcl Translation", "Lcl Translation", "", "A",-8.81360654680861,0,34.0942155429593
 		}
 		Shading: Y
 		Culling: "CullingOff"
@@ -914,244 +914,244 @@ Objects:  {
 Connections:  {
 	
 	;Model::Mutant.fbx_inst_0, Model::RootNode
-	C: "OO",2343443504880,0
+	C: "OO",2122798404480,0
 	
 	;Model::Mutant.fbx_inst_1, Model::RootNode
-	C: "OO",2343443500880,0
+	C: "OO",2122797542560,0
 	
 	;Model::Mutant.fbx_inst_2, Model::RootNode
-	C: "OO",2343443492880,0
+	C: "OO",2122797540560,0
 	
 	;Model::Mutant.fbx_inst_3, Model::RootNode
-	C: "OO",2343443506880,0
+	C: "OO",2122797546560,0
 	
 	;Model::Mutant.fbx_inst_4, Model::RootNode
-	C: "OO",2343443494880,0
+	C: "OO",2122797538560,0
 	
 	;Model::Mutant.fbx_inst_5, Model::RootNode
-	C: "OO",2343443496880,0
+	C: "OO",2122797534560,0
 	
 	;Model::Mutant.fbx_inst_6, Model::RootNode
-	C: "OO",2343443502880,0
+	C: "OO",2122797548560,0
 	
 	;Model::Mutant.fbx_inst_7, Model::RootNode
-	C: "OO",2343443498880,0
+	C: "OO",2122797544560,0
 	
 	;Model::Mutant.fbx_inst_8, Model::RootNode
-	C: "OO",2343475336880,0
+	C: "OO",2122797550560,0
 	
 	;Model::Mutant.fbx_inst_9, Model::RootNode
-	C: "OO",2343475332880,0
+	C: "OO",2122797536560,0
 	
 	;Model::Mutant.fbx_inst_10, Model::RootNode
-	C: "OO",2343475328880,0
+	C: "OO",2122797554560,0
 	
 	;Model::Mutant.fbx_inst_11, Model::RootNode
-	C: "OO",2343475326880,0
+	C: "OO",2122797560560,0
 	
 	;Model::Mutant.fbx_inst_12, Model::RootNode
-	C: "OO",2343475338880,0
+	C: "OO",2122797564560,0
 	
 	;Model::Mutant.fbx_inst_13, Model::RootNode
-	C: "OO",2343475340880,0
+	C: "OO",2122797562560,0
 	
 	;Model::Mutant.fbx_inst_14, Model::RootNode
-	C: "OO",2343475342880,0
+	C: "OO",2122797556560,0
 	
 	;Model::Mutant.fbx_inst_15, Model::RootNode
-	C: "OO",2343475344880,0
+	C: "OO",2122797552560,0
 	
 	;Model::Mutant.fbx_inst_16, Model::RootNode
-	C: "OO",2343475330880,0
+	C: "OO",2122797558560,0
 	
 	;Model::Mutant.fbx_inst_17, Model::RootNode
-	C: "OO",2343475346880,0
+	C: "OO",2122796891424,0
 	
 	;Model::Mutant.fbx_inst_18, Model::RootNode
-	C: "OO",2343475348880,0
+	C: "OO",2122796897424,0
 	
 	;Model::Mutant.fbx_inst_19, Model::RootNode
-	C: "OO",2343475334880,0
+	C: "OO",2122796887424,0
 	
-	;Model::Remy.fbx_inst_0, Model::RootNode
-	C: "OO",2343475356880,0
+	;Model::Warrok W Kurniawan.fbx_inst_0, Model::RootNode
+	C: "OO",2122831969760,0
 	
-	;Model::Remy.fbx_inst_1, Model::RootNode
-	C: "OO",2343475352880,0
+	;Model::Warrok W Kurniawan.fbx_inst_1, Model::RootNode
+	C: "OO",2122831971760,0
 	
-	;Model::Remy.fbx_inst_2, Model::RootNode
-	C: "OO",2343475350880,0
+	;Model::Warrok W Kurniawan.fbx_inst_2, Model::RootNode
+	C: "OO",2122796905424,0
 	
-	;Model::Remy.fbx_inst_3, Model::RootNode
-	C: "OO",2343475354880,0
+	;Model::Warrok W Kurniawan.fbx_inst_3, Model::RootNode
+	C: "OO",2122840128112,0
 	
-	;Model::Remy.fbx_inst_4, Model::RootNode
-	C: "OO",2343468242992,0
+	;Model::Warrok W Kurniawan.fbx_inst_4, Model::RootNode
+	C: "OO",2122840134112,0
 	
-	;Model::Remy.fbx_inst_5, Model::RootNode
-	C: "OO",2343468250992,0
+	;Model::Warrok W Kurniawan.fbx_inst_5, Model::RootNode
+	C: "OO",2122840136112,0
 	
-	;Model::Remy.fbx_inst_6, Model::RootNode
-	C: "OO",2343468252992,0
+	;Model::Warrok W Kurniawan.fbx_inst_6, Model::RootNode
+	C: "OO",2122840124112,0
 	
-	;Model::Remy.fbx_inst_7, Model::RootNode
-	C: "OO",2343468246992,0
+	;Model::Warrok W Kurniawan.fbx_inst_7, Model::RootNode
+	C: "OO",2122840130112,0
 	
-	;Model::Remy.fbx_inst_8, Model::RootNode
-	C: "OO",2343468248992,0
+	;Model::Warrok W Kurniawan.fbx_inst_8, Model::RootNode
+	C: "OO",2122840138112,0
 	
-	;Model::Remy.fbx_inst_9, Model::RootNode
-	C: "OO",2343468254992,0
+	;Model::Warrok W Kurniawan.fbx_inst_9, Model::RootNode
+	C: "OO",2122840132112,0
 	
-	;Model::Remy.fbx_inst_10, Model::RootNode
-	C: "OO",2343468244992,0
+	;Model::Warrok W Kurniawan.fbx_inst_10, Model::RootNode
+	C: "OO",2122840140112,0
 	
-	;Model::Remy.fbx_inst_11, Model::RootNode
-	C: "OO",2343468240992,0
+	;Model::Warrok W Kurniawan.fbx_inst_11, Model::RootNode
+	C: "OO",2122840126112,0
 	
-	;Model::Remy.fbx_inst_12, Model::RootNode
-	C: "OO",2343442030112,0
+	;Model::Warrok W Kurniawan.fbx_inst_12, Model::RootNode
+	C: "OO",2122840154112,0
 	
-	;Model::Remy.fbx_inst_13, Model::RootNode
-	C: "OO",2343442042112,0
+	;Model::Warrok W Kurniawan.fbx_inst_13, Model::RootNode
+	C: "OO",2122840152112,0
 	
-	;Model::Remy.fbx_inst_14, Model::RootNode
-	C: "OO",2343442044112,0
+	;Model::Warrok W Kurniawan.fbx_inst_14, Model::RootNode
+	C: "OO",2122840156112,0
 	
-	;Model::Remy.fbx_inst_15, Model::RootNode
-	C: "OO",2343442046112,0
+	;Model::Warrok W Kurniawan.fbx_inst_15, Model::RootNode
+	C: "OO",2122840148112,0
 	
-	;Model::Remy.fbx_inst_16, Model::RootNode
-	C: "OO",2343442032112,0
+	;Model::Warrok W Kurniawan.fbx_inst_16, Model::RootNode
+	C: "OO",2122840144112,0
 	
-	;Model::Remy.fbx_inst_17, Model::RootNode
-	C: "OO",2343442048112,0
+	;Model::Warrok W Kurniawan.fbx_inst_17, Model::RootNode
+	C: "OO",2122840142112,0
 	
-	;Model::Remy.fbx_inst_18, Model::RootNode
-	C: "OO",2343442034112,0
+	;Model::Warrok W Kurniawan.fbx_inst_18, Model::RootNode
+	C: "OO",2122840158112,0
 	
-	;Model::Remy.fbx_inst_19, Model::RootNode
-	C: "OO",2343442036112,0
+	;Model::Warrok W Kurniawan.fbx_inst_19, Model::RootNode
+	C: "OO",2122840150112,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_0, Model::RootNode
-	C: "OO",2343442038112,0
+	;Model::Warzombie F Pedroso.fbx_inst_0, Model::RootNode
+	C: "OO",2122838335584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_1, Model::RootNode
-	C: "OO",2343442050112,0
+	;Model::Warzombie F Pedroso.fbx_inst_1, Model::RootNode
+	C: "OO",2122838337584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_2, Model::RootNode
-	C: "OO",2343442040112,0
+	;Model::Warzombie F Pedroso.fbx_inst_2, Model::RootNode
+	C: "OO",2122838349584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_3, Model::RootNode
-	C: "OO",2343442056112,0
+	;Model::Warzombie F Pedroso.fbx_inst_3, Model::RootNode
+	C: "OO",2122838339584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_4, Model::RootNode
-	C: "OO",2343442058112,0
+	;Model::Warzombie F Pedroso.fbx_inst_4, Model::RootNode
+	C: "OO",2122838363584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_5, Model::RootNode
-	C: "OO",2343442054112,0
+	;Model::Warzombie F Pedroso.fbx_inst_5, Model::RootNode
+	C: "OO",2122838351584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_6, Model::RootNode
-	C: "OO",2343442052112,0
+	;Model::Warzombie F Pedroso.fbx_inst_6, Model::RootNode
+	C: "OO",2122838365584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_7, Model::RootNode
-	C: "OO",2343442060112,0
+	;Model::Warzombie F Pedroso.fbx_inst_7, Model::RootNode
+	C: "OO",2122838367584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_8, Model::RootNode
-	C: "OO",2343472464608,0
+	;Model::Warzombie F Pedroso.fbx_inst_8, Model::RootNode
+	C: "OO",2122838353584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_9, Model::RootNode
-	C: "OO",2343472476608,0
+	;Model::Warzombie F Pedroso.fbx_inst_9, Model::RootNode
+	C: "OO",2122838359584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_10, Model::RootNode
-	C: "OO",2343472470608,0
+	;Model::Warzombie F Pedroso.fbx_inst_10, Model::RootNode
+	C: "OO",2122838361584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_11, Model::RootNode
-	C: "OO",2343472480608,0
+	;Model::Warzombie F Pedroso.fbx_inst_11, Model::RootNode
+	C: "OO",2122838369584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_12, Model::RootNode
-	C: "OO",2343472474608,0
+	;Model::Warzombie F Pedroso.fbx_inst_12, Model::RootNode
+	C: "OO",2122838357584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_13, Model::RootNode
-	C: "OO",2343472478608,0
+	;Model::Warzombie F Pedroso.fbx_inst_13, Model::RootNode
+	C: "OO",2122838355584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_14, Model::RootNode
-	C: "OO",2343472472608,0
+	;Model::Warzombie F Pedroso.fbx_inst_14, Model::RootNode
+	C: "OO",2122838371584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_15, Model::RootNode
-	C: "OO",2343472466608,0
+	;Model::Warzombie F Pedroso.fbx_inst_15, Model::RootNode
+	C: "OO",2122838387584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_16, Model::RootNode
-	C: "OO",2343472482608,0
+	;Model::Warzombie F Pedroso.fbx_inst_16, Model::RootNode
+	C: "OO",2122838377584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_17, Model::RootNode
-	C: "OO",2343472468608,0
+	;Model::Warzombie F Pedroso.fbx_inst_17, Model::RootNode
+	C: "OO",2122838379584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_18, Model::RootNode
-	C: "OO",2343472490608,0
+	;Model::Warzombie F Pedroso.fbx_inst_18, Model::RootNode
+	C: "OO",2122838375584,0
 	
-	;Model::Standing Torch Light Torch.fbx_inst_19, Model::RootNode
-	C: "OO",2343472484608,0
+	;Model::Warzombie F Pedroso.fbx_inst_19, Model::RootNode
+	C: "OO",2122838381584,0
 	
 	;Model::Vampire A Lusth.fbx_inst_0, Model::RootNode
-	C: "OO",2343472492608,0
+	C: "OO",2122839882336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_1, Model::RootNode
-	C: "OO",2343472494608,0
+	C: "OO",2122839868336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_2, Model::RootNode
-	C: "OO",2343472486608,0
+	C: "OO",2122839874336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_3, Model::RootNode
-	C: "OO",2343472488608,0
+	C: "OO",2122839876336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_4, Model::RootNode
-	C: "OO",2343478421264,0
+	C: "OO",2122839884336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_5, Model::RootNode
-	C: "OO",2343478409264,0
+	C: "OO",2122839878336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_6, Model::RootNode
-	C: "OO",2343478413264,0
+	C: "OO",2122839870336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_7, Model::RootNode
-	C: "OO",2343478415264,0
+	C: "OO",2122839880336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_8, Model::RootNode
-	C: "OO",2343478417264,0
+	C: "OO",2122839888336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_9, Model::RootNode
-	C: "OO",2343478419264,0
+	C: "OO",2122839890336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_10, Model::RootNode
-	C: "OO",2343478407264,0
+	C: "OO",2122839892336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_11, Model::RootNode
-	C: "OO",2343478411264,0
+	C: "OO",2122839894336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_12, Model::RootNode
-	C: "OO",2343478427264,0
+	C: "OO",2122839896336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_13, Model::RootNode
-	C: "OO",2343478437264,0
+	C: "OO",2122839898336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_14, Model::RootNode
-	C: "OO",2343478423264,0
+	C: "OO",2122839900336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_15, Model::RootNode
-	C: "OO",2343478429264,0
+	C: "OO",2122839886336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_16, Model::RootNode
-	C: "OO",2343478435264,0
+	C: "OO",2122839904336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_17, Model::RootNode
-	C: "OO",2343478425264,0
+	C: "OO",2122839902336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_18, Model::RootNode
-	C: "OO",2343478433264,0
+	C: "OO",2122839916336,0
 	
 	;Model::Vampire A Lusth.fbx_inst_19, Model::RootNode
-	C: "OO",2343478431264,0
+	C: "OO",2122839920336,0
 }
 ;Takes section
 ;----------------------------------------------------
