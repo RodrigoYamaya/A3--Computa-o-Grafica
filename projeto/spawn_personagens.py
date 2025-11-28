@@ -2,6 +2,8 @@ import os
 import random
 from FbxCommon import *
 from fbx_loader import load_fbx_model
+from terreno import Terreno
+
 
 MODELS_DIR = "FBX models"
 PERSONAGENS = [
