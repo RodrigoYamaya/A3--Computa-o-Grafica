@@ -10,7 +10,7 @@ import random
 # --- IMPORTS ---
 from terreno import Terreno
 
-# Tenta importar seus módulos de personagem (Lógica original preservada)
+# Tenta importar seus módulos de personagem
 try:
     from cenario import Cenario, Instancia
     from personagem import PersonagemFBX
@@ -27,8 +27,9 @@ class SceneRenderer:
         self.clock = pygame.time.Clock()
         self.running = False
         
-        # --- Câmera (RESTAURADO PARA O ORIGINAL) ---
-        self.camera_pos = glm.vec3(0.0, 5.0, 10.0) # Subi um pouco o Y inicial
+        # --- Câmera ---
+        # Ajustado para 1.8 (altura de uma pessoa alta) para evitar sensação de "rastejar"
+        self.camera_pos = glm.vec3(0.0, 1.8, 10.0) 
         self.camera_front = glm.vec3(0.0, 0.0, -1.0)
         self.camera_up = glm.vec3(0.0, 1.0, 0.0)
         self.yaw = -90.0
@@ -41,6 +42,9 @@ class SceneRenderer:
         self.gravity = -15.0
         self.jump_strength = 8.0
         self.on_ground = True
+        
+        # Variável para controlar a altura do chão da câmera
+        self.eye_height = 1.8 
         
         # --- Variáveis do Ambiente ---
         self.time_of_day = 8.0
@@ -134,14 +138,13 @@ class SceneRenderer:
                     z = np.random.uniform(-140, 140)
                     rotacao = np.random.uniform(0, 360)
                     
-                    # --- CORREÇÃO DE ESCALA AQUI ---
-                    # Como o loader já ajustou o tamanho para 2.0 unidades,
-                    # usamos escala próxima de 1.0 para mantê-los visíveis.
-                    escala = np.random.uniform(0.9, 1.1) 
+                    # Escala aumentada para compensar a altura da câmera
+                    escala = np.random.uniform(1.3, 1.5) 
                     
-                    # --- CORREÇÃO DE ALTURA (Y) ---
-                    # Se Y=0 ficava enterrado, subimos para 2.0 ou 1.5 unidades.
-                    y_pos = 1.5 
+                    # CORREÇÃO: Altura dinâmica baseada na escala.
+                    # Se o pivô é no centro e a altura base é 2.0, os pés estão em -1.0 * escala.
+                    # Para colocar os pés em y=0, precisamos subir exatamente o valor da escala.
+                    y_pos = escala 
                     
                     instancia = Instancia(personagem, [x, y_pos, z], rotacao, escala)
                     self.cenario.add(instancia)
@@ -203,10 +206,15 @@ class SceneRenderer:
         speed = self.camera_speed * dt
         if keys[pygame.K_LSHIFT]: speed *= 2.0 
         
-        # --- CORREÇÃO DE MOVIMENTO (Travar no chão) ---
-        # Cria um vetor que aponta para frente mas ignora a inclinação (Y)
-        # Isso impede que você "voe" ao olhar para cima ou "afunde" ao olhar para baixo
-        front_xz = glm.normalize(glm.vec3(self.camera_front.x, 0.0, self.camera_front.z))
+        # --- SEGURANÇA NO CÁLCULO DE VETORES ---
+        # Cria um vetor XZ para movimento no chão
+        raw_front_xz = glm.vec3(self.camera_front.x, 0.0, self.camera_front.z)
+        
+        # Verifica se o vetor é válido antes de normalizar (evita travamento ao olhar muito para cima/baixo)
+        if glm.length(raw_front_xz) > 0.001:
+            front_xz = glm.normalize(raw_front_xz)
+        else:
+            front_xz = glm.vec3(0.0, 0.0, 0.0) # Se estiver olhando 90 graus, não move para frente
         
         if keys[pygame.K_w]: self.camera_pos += speed * front_xz
         if keys[pygame.K_s]: self.camera_pos -= speed * front_xz
@@ -215,13 +223,14 @@ class SceneRenderer:
         if keys[pygame.K_a]: self.camera_pos -= speed * right
         if keys[pygame.K_d]: self.camera_pos += speed * right
 
+        # Física (Pulo e Colisão com o Chão)
         if self.is_jumping or not self.on_ground:
             self.camera_pos.y += self.jump_velocity * dt
             self.jump_velocity += self.gravity * dt
             
-            # Altura do "olho" (chão)
-            if self.camera_pos.y <= 2.0:
-                self.camera_pos.y = 2.0
+            # Altura do "olho" ajustada para eye_height (1.8)
+            if self.camera_pos.y <= self.eye_height:
+                self.camera_pos.y = self.eye_height
                 self.is_jumping = False
                 self.on_ground = True
                 self.jump_velocity = 0
