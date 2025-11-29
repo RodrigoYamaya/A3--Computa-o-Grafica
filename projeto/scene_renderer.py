@@ -88,10 +88,10 @@ class VisualStars:
         
         glDisable(GL_BLEND)
 
-# --- CLASSE VISUAL SUN (O SOL 3D) ---
-class VisualSun:
+# --- CLASSE VISUAL ORB (SOL E LUA 3D) ---
+class VisualOrb:
     def __init__(self, radius=1.0, stacks=16, slices=16):
-        # Gera a geometria de uma esfera para ser o Sol
+        # Gera a geometria de uma esfera para ser o Sol ou Lua
         vertices = []
         indices = []
         
@@ -131,7 +131,7 @@ class VisualSun:
         
         glBindVertexArray(0)
         
-        # Shader simples apenas para pintar o sol de uma cor sólida
+        # Shader simples apenas para pintar o orbe de uma cor sólida
         vs = """#version 330 core
         layout (location = 0) in vec3 aPos;
         uniform mat4 model;
@@ -144,11 +144,11 @@ class VisualSun:
         void main() { FragColor = vec4(color, 1.0); }"""
         self.shader = compileProgram(compileShader(vs, GL_VERTEX_SHADER), compileShader(fs, GL_FRAGMENT_SHADER))
 
-    def draw(self, pos, view, proj, color):
+    def draw(self, pos, view, proj, color, scale=8.0):
         glUseProgram(self.shader)
-        # Posiciona o sol e aumenta a escala (8.0x) para ser visível de longe
+        # Posiciona o orbe e aumenta a escala para ser visível de longe
         model = glm.translate(glm.mat4(1.0), pos)
-        model = glm.scale(model, glm.vec3(8.0)) 
+        model = glm.scale(model, glm.vec3(scale)) 
         
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "model"), 1, GL_FALSE, glm.value_ptr(model))
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "view"), 1, GL_FALSE, glm.value_ptr(view))
@@ -167,6 +167,7 @@ class SceneRenderer:
         self.running = False
         
         # --- Câmera ---
+        # Ajustado para 1.8 (altura de uma pessoa alta) para evitar sensação de "rastejar"
         self.camera_pos = glm.vec3(0.0, 1.8, 10.0) 
         self.camera_front = glm.vec3(0.0, 0.0, -1.0)
         self.camera_up = glm.vec3(0.0, 1.0, 0.0)
@@ -181,6 +182,7 @@ class SceneRenderer:
         self.jump_strength = 8.0
         self.on_ground = True
         
+        # Variável para controlar a altura do chão da câmera
         self.eye_height = 1.8 
         
         # --- Variáveis do Ambiente ---
@@ -192,25 +194,32 @@ class SceneRenderer:
         self.terrain = None
         self.shader = None
         self.cenario = None 
-        self.visual_sun = None 
+        self.visual_orb = None # Usado para Sol e Lua
         self.visual_stars = None # Estrelas
         
+        # Sombra
         self.shadow_renderer = ShadowRenderer()
 
     def init_gl(self):
         pygame.init()
+        
+        # Solicita ao driver 4 amostras por pixel para suavizar bordas (Anti-aliasing)
+        pygame.display.gl_set_attribute(pygame.GL_MULTISAMPLEBUFFERS, 1)
+        pygame.display.gl_set_attribute(pygame.GL_MULTISAMPLESAMPLES, 4)
+        
         pygame.display.set_mode((self.width, self.height), pygame.DOUBLEBUF | pygame.OPENGL)
-        pygame.display.set_caption("Cenário Virtual: Sol, Sombra e Fog")
+        pygame.display.set_caption("Cenário Virtual: Sol, Lua, Sombra e Fog")
         
         glEnable(GL_DEPTH_TEST)
         glEnable(GL_BLEND)
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA)
+        glEnable(GL_MULTISAMPLE)
         
         pygame.mouse.set_visible(False)
         pygame.event.set_grab(True)
         
-        # Inicializa Sol (Esfera) e Estrelas
-        self.visual_sun = VisualSun()
+        # Inicializa Orbe (Sol/Lua) e Estrelas
+        self.visual_orb = VisualOrb()
         self.visual_stars = VisualStars()
         
         # 1. Sombras
@@ -281,24 +290,42 @@ class SceneRenderer:
         sun_y = math.sin(angle)
         sun_x = math.cos(angle)
         
-        # Vetor Direção da luz
-        light_dir = glm.vec3(-sun_x, -sun_y, 0.0)
-        
         # Posição Visual do Sol (Longe: 100 unidades)
         sun_pos = glm.vec3(sun_x * 100.0, sun_y * 100.0, 0.0)
         
-        # Intensidade (0.05 a 1.0) - Isso faz escurecer à noite
-        intensity = max(sun_y, 0.05) 
+        # Posição Visual da Lua (Oposto ao Sol)
+        moon_pos = glm.vec3(-sun_x * 100.0, -sun_y * 100.0, 0.0)
         
-        if sun_y > 0: # Dia
+        # Define quem é a fonte de luz ativa (Sol de dia, Lua de noite)
+        if sun_y > -0.2: # Dia e Crepúsculo
+            # A luz vem do SOL
+            light_source_pos = sun_pos
+            # Vetor direção da luz (aponta PARA a fonte de luz, o Sol)
+            light_dir = glm.normalize(sun_pos)
+            
+            # Intensidade do Sol
+            intensity = max(sun_y, 0.0)
+            
+            # Cor do Céu (Azul de dia, Laranja no por do sol)
             sky_color = glm.mix(glm.vec3(0.9, 0.4, 0.2), glm.vec3(0.5, 0.7, 1.0), intensity)
-            light_color = glm.vec3(1.0, 0.95, 0.8) * intensity
+            # Cor da Luz do Sol (Amarelada/Branca)
+            light_color = glm.vec3(1.0, 0.95, 0.8) * max(intensity, 0.1)
+            
         else: # Noite
-            sky_color = glm.vec3(0.05, 0.05, 0.1)
-            light_color = glm.vec3(0.05, 0.05, 0.1) # Luz fraca azulada
+            # A luz vem da LUA
+            light_source_pos = moon_pos
+            # Vetor direção da luz (aponta PARA a fonte de luz, a Lua)
+            light_dir = glm.normalize(moon_pos)
+            
+            # Céu noturno (Azul escuro profundo)
+            sky_color = glm.vec3(0.02, 0.02, 0.05)
+            # Luz da Lua (Azulada e fraca)
+            light_color = glm.vec3(0.1, 0.1, 0.25)
             
         fog_color = sky_color
-        return light_dir, light_color, sky_color, fog_color, sun_pos
+        
+        # Retorna: Direção da Luz Ativa, Cor da Luz, Cor do Céu, Cor do Fog, Pos Sol, Pos Lua, Pos Luz Ativa
+        return light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, light_source_pos
 
     def handle_input(self, dt):
         for event in pygame.event.get():
@@ -350,21 +377,21 @@ class SceneRenderer:
         if self.time_of_day >= 24: self.time_of_day = 0
         
         self.handle_input(dt)
-        light_dir, light_color, sky_color, fog_color, sun_pos = self.update_day_night_cycle()
+        light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, active_light_pos = self.update_day_night_cycle()
         
         # 1. Shadow Pass
-        self.shadow_renderer.render_depth_map(self, sun_pos)
+        # Renderiza a sombra do ponto de vista da fonte de luz ATIVA (Sol ou Lua)
+        self.shadow_renderer.render_depth_map(self, active_light_pos)
         
         # 2. Scene Pass
         glViewport(0, 0, self.width, self.height)
         glClearColor(sky_color.r, sky_color.g, sky_color.b, 1.0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         
-        # Desenha o Sol e Estrelas
         view = glm.lookAt(self.camera_pos, self.camera_pos + self.camera_front, self.camera_up)
         proj = glm.perspective(glm.radians(60.0), self.width/self.height, 0.1, 500.0)
         
-        # Lógica para desenhar estrelas
+        # Lógica para desenhar estrelas (aparecem à noite)
         star_alpha = 0.0
         normalized_sun_y = sun_pos.y / 100.0
         if normalized_sun_y < 0.2: # Começa a aparecer no por do sol
@@ -374,20 +401,28 @@ class SceneRenderer:
         if star_alpha > 0.0:
             self.visual_stars.draw(view, proj, star_alpha)
 
+        # Desenha Sol (Amarelo) se estiver visível
         if sun_pos.y > -20.0: 
-            self.visual_sun.draw(sun_pos, view, proj, glm.vec3(1.0, 1.0, 0.6))
+            self.visual_orb.draw(sun_pos, view, proj, glm.vec3(1.0, 1.0, 0.6), scale=8.0)
+            
+        # Desenha Lua (Cinza/Branca) se estiver visível
+        if moon_pos.y > -20.0:
+            self.visual_orb.draw(moon_pos, view, proj, glm.vec3(0.9, 0.9, 1.0), scale=5.0)
 
         glUseProgram(self.shader)
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "view"), 1, GL_FALSE, glm.value_ptr(view))
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "projection"), 1, GL_FALSE, glm.value_ptr(proj))
         glUniform3f(glGetUniformLocation(self.shader, "viewPos"), self.camera_pos.x, self.camera_pos.y, self.camera_pos.z)
+        
+        # AQUI É O IMPORTANTE: Passamos a direção da luz ATIVA (seja Sol ou Lua)
         glUniform3f(glGetUniformLocation(self.shader, "lightDir"), light_dir.x, light_dir.y, light_dir.z)
         glUniform3f(glGetUniformLocation(self.shader, "lightColor"), light_color.x, light_color.y, light_color.z)
+        
         glUniform1f(glGetUniformLocation(self.shader, "ambientStrength"), 0.3)
         glUniform3f(glGetUniformLocation(self.shader, "fogColor"), fog_color.x, fog_color.y, fog_color.z)
         glUniform1f(glGetUniformLocation(self.shader, "fogDensity"), self.fog_density)
 
-        light_space_matrix = self.shadow_renderer.get_light_space_matrix(sun_pos)
+        light_space_matrix = self.shadow_renderer.get_light_space_matrix(active_light_pos)
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "lightSpaceMatrix"), 1, GL_FALSE, glm.value_ptr(light_space_matrix))
         
         glActiveTexture(GL_TEXTURE1)
