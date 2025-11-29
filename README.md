@@ -1,68 +1,114 @@
-Projeto A3 — Computação Gráfica e Realidade Virtual
+Relatório do Projeto de Computação Gráfica - Cenário Virtual
 
-IBMR — Centro Universitário (Campus Barra)
-UC: Computação Gráfica e Realidade Virtual
-Professor: Rogério Pinheiro de Souza
+1. Identificação
 
-Instruções (LEIA COM ATENÇÃO!)
+Integrantes do Grupo:
 
-O projeto deve ser feito em grupo de no MÁXIMO 3 integrantes.
+[Rodrigo yamaya gonçalves] 
 
-A entrega do projeto deve ser um único arquivo compactado (ZIP), contendo:
+[Lucas dos Santos Ottvagen] 
 
-a. Todos os arquivos de código necessários para executar (scripts Python, códigos dos shaders, arquivos de texturas utilizados, arquivos de modelos utilizados, etc.).
+[Luiz Felippe Almeida Veloso] 
 
-b. Um arquivo no formato PDF especificando:
+2. Instruções de Instalação e Execução
 
-nomes dos integrantes;
+Bibliotecas Necessárias
 
-bibliotecas Python necessárias que devem ser instaladas;
+Para executar a aplicação, é necessário ter o Python instalado (versão 3.8 ou superior) e instalar as seguintes dependências:
 
-script inicial (como executar);
+PyGame (pygame): Responsável pela criação da janela, gerenciamento de contexto OpenGL e captura de entrada (teclado/mouse).
 
-técnicas utilizadas;
+PyOpenGL (PyOpenGL): Bindings do OpenGL para Python.
 
-orientações para utilizar a aplicação.
+PyGLM (PyGLM): Biblioteca matemática para cálculos vetoriais e matriciais (essencial para a câmera e transformações).
 
-Tarefa
+NumPy (numpy): Manipulação eficiente de arrays de dados.
 
-Crie um cenário virtual utilizando OBRIGATORIAMENTE OpenGL Avançado que contenha as características abaixo:
+Pillow (Pillow): Utilizada para carregar texturas de imagem.
 
-1. Terreno
+Comando para instalação rápida:
 
-Deve ser criado um terreno de forma procedural ou a partir de um arquivo (imagem, OBJ/FBX, etc.).
-
-a. O terreno deve ter no mínimo 300 m de comprimento e largura;
-
-b. Aplique uma textura no terreno;
-
-c. Adicione algum tipo de fog (neblina).
-
-2. Personagens Mixamo
-
-Escolher pelo menos 4 personagens da plataforma Mixamo (formato FBX) e espalhar pelo menos 20 instâncias de cada um pelo terreno (posições aleatórias).
-
-3. Iluminação / Sol / Sombras
-
-A cena deve conter uma fonte de luz simulando o sol:
-
-a. O sol deve mover-se de leste (X positivo) para oeste (X negativo); cada 1 hora do dia = 1 minuto real na cena (ou seja, 24 minutos para um ciclo completo).
-
-b. Altere a cor do céu de acordo com o horário do dia (amanhecer / dia / anoitecer / noite).
-
-c. Aplique alguma técnica de geração de sombra na cena (por exemplo: shadow mapping, cascaded shadow maps, ou uma simplificação plausível).
-
-4. Câmera em 1ª pessoa (comportamento de jogador)
-
-Simule movimento de câmera em primeira pessoa:
-
-Andar para frente e para trás (velocidade normal + correr).
-
-Mudar direção com mouse.
-
-Pulo.
-
-Descrever no PDF como o usuário controla (teclas/mouse).
+pip install pygame PyOpenGL PyGLM numpy Pillow
 
 
+Script Inicial
 
+O ponto de entrada da aplicação é o arquivo main.py. Para iniciar, abra a pasta do projeto e execute no terminal:
+
+cd projeto
+py -3.10 main.py
+
+
+3. Descrição dos Controles (Interação do Usuário)
+
+A aplicação simula uma câmera em primeira pessoa (FPS), onde o usuário controla a visão e o movimento de um observador no cenário.
+
+Movimentação
+
+Teclas W / S: Movem a câmera para frente e para trás no plano horizontal (eixo XZ). A movimentação é travada no chão para evitar que o observador "voe" ou entre na terra.
+
+Teclas A / D: Movem a câmera lateralmente para a esquerda e direita (Strafe).
+
+Tecla SHIFT (Esquerdo): Ativa a corrida, dobrando a velocidade de movimento enquanto pressionada.
+
+Tecla ESPAÇO: Realiza um pulo. A física inclui gravidade, trazendo o observador de volta ao chão (altura dos olhos em 1.8 unidades).
+
+Orientação (Visão)
+
+Mouse: Controla a direção do olhar.
+
+Movimento horizontal: Gira a câmera para os lados (Yaw).
+
+Movimento vertical: Olha para cima ou para baixo (Pitch), com limite de 89 graus para evitar inversão da câmera.
+
+Cursor: O cursor do mouse é ocultado e travado na janela para permitir rotação infinita (estilo FPS).
+
+Outros Comandos
+
+Tecla ESC: Encerra a aplicação.
+
+Setas Direita / Esquerda: Aceleram ou desaceleram a passagem do tempo (ciclo dia/noite) para fins de demonstração.
+
+4. Técnicas de Computação Gráfica Utilizadas
+
+O projeto foi desenvolvido utilizando OpenGL Moderno (Core Profile) com shaders programáveis (GLSL). As principais técnicas implementadas foram:
+
+Geração de Terreno:
+
+Carregamento de malha irregular a partir de arquivo .OBJ (FBX models/terreno.obj).
+
+Aplicação de textura difusa (grass.png).
+
+Iluminação Dinâmica (Ciclo Dia/Noite):
+
+Uma fonte de luz direcional simula o Sol, orbitando a cena de Leste para Oeste.
+
+A cor do céu (glClearColor) e da luz ambiente é interpolada dinamicamente baseada na altura do sol, criando transições suaves entre amanhecer, dia, entardecer e noite.
+
+Visualização da posição do sol através de uma esfera renderizada no céu.
+
+Sombras em Tempo Real (Shadow Mapping):
+
+Implementação da técnica de Shadow Mapping em dois passos.
+
+Passo 1: Renderização da cena do ponto de vista da luz (Sol) para um Framebuffer de profundidade (Depth Map).
+
+Passo 2: Renderização da cena normal, comparando a profundidade do fragmento com o mapa de sombra para determinar oclusão.
+
+Uso de PCF (Percentage-Closer Filtering) nos shaders para suavizar as bordas das sombras.
+
+Correção de artefatos visuais (Shadow Acne) utilizando glCullFace(GL_FRONT) durante o passo da sombra.
+
+Neblina Volumétrica (Fog):
+
+Cálculo de neblina exponencial quadrática no Fragment Shader.
+
+A cor da neblina adapta-se automaticamente à cor do céu (ciclo dia/noite), garantindo coesão visual.
+
+Instancing e Modelos 3D:
+
+Carregamento de múltiplos personagens no formato FBX.
+
+Distribuição aleatória de 100 instâncias pelo terreno, com escala e rotação variadas.
+
+Ajuste automático de altura para garantir que os pés dos personagens toquem o solo corretamente.
