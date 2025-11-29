@@ -9,8 +9,8 @@ MODELS_DIR = "FBX models"
 PERSONAGENS = [
     "Mutant.fbx",
     "Warrok W Kurniawan.fbx", 
-    "Warzombie F Pedroso.fbx",
     "Vampire A Lusth.fbx"
+    "Pumpkinhulk L Shaw.fbx"
 ]
 OUTPUT = "cenario_final.fbx"
 INSTANCES_PER_MODEL = 20
