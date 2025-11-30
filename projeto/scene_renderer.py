@@ -182,7 +182,6 @@ class SceneRenderer:
         self.jump_strength = 8.0
         self.on_ground = True
         
-        # Variável para controlar a altura do chão da câmera
         self.eye_height = 1.8 
         
         # --- Variáveis do Ambiente ---
@@ -232,10 +231,13 @@ class SceneRenderer:
         
         # 3. Terreno
         try:
+            # --- MELHORIA DE TEXTURA (TILING) ---
+            # Alterado para 1000.0 para garantir máxima nitidez e detalhes no chão.
             self.terrain = Terreno(
                 obj_path="FBX models/terreno.obj", 
                 texture_path="Textures/Grass005_2K-PNG_Color.png", 
-                scale=300.0
+                scale=300.0,
+                uv_repeat=1000.0 
             )
             print("✅ Terreno carregado.")
         except Exception as e:
@@ -290,6 +292,9 @@ class SceneRenderer:
         sun_y = math.sin(angle)
         sun_x = math.cos(angle)
         
+        # Vetor Direção da luz
+        light_dir = glm.vec3(-sun_x, -sun_y, 0.0)
+        
         # Posição Visual do Sol (Longe: 100 unidades)
         sun_pos = glm.vec3(sun_x * 100.0, sun_y * 100.0, 0.0)
         
@@ -323,7 +328,6 @@ class SceneRenderer:
             light_color = glm.vec3(0.1, 0.1, 0.25)
             
         fog_color = sky_color
-        
         # Retorna: Direção da Luz Ativa, Cor da Luz, Cor do Céu, Cor do Fog, Pos Sol, Pos Lua, Pos Luz Ativa
         return light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, light_source_pos
 
@@ -380,7 +384,6 @@ class SceneRenderer:
         light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, active_light_pos = self.update_day_night_cycle()
         
         # 1. Shadow Pass
-        # Renderiza a sombra do ponto de vista da fonte de luz ATIVA (Sol ou Lua)
         self.shadow_renderer.render_depth_map(self, active_light_pos)
         
         # 2. Scene Pass
@@ -388,10 +391,11 @@ class SceneRenderer:
         glClearColor(sky_color.r, sky_color.g, sky_color.b, 1.0)
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         
+        # Desenha o Sol e Estrelas
         view = glm.lookAt(self.camera_pos, self.camera_pos + self.camera_front, self.camera_up)
         proj = glm.perspective(glm.radians(60.0), self.width/self.height, 0.1, 500.0)
         
-        # Lógica para desenhar estrelas (aparecem à noite)
+        # Lógica para desenhar estrelas
         star_alpha = 0.0
         normalized_sun_y = sun_pos.y / 100.0
         if normalized_sun_y < 0.2: # Começa a aparecer no por do sol
