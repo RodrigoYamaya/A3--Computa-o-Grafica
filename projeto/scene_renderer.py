@@ -237,7 +237,7 @@ class SceneRenderer:
                 obj_path="FBX models/terreno.obj", 
                 texture_path="Textures/Grass005_2K-PNG_Color.png", 
                 scale=300.0,
-                uv_repeat=1000.0 
+                uv_repeat=60.0
             )
             print("✅ Terreno carregado.")
         except Exception as e:
@@ -266,8 +266,8 @@ class SceneRenderer:
         print("🎯 Carregando personagens...")
         self.cenario = Cenario()
         personagens_mixamo = [
-            "FBX models/Mutant.fbx", "FBX models/Warrok W Kurniawan.fbx", 
-            "FBX models/Warzombie F Pedroso.fbx", "FBX models/Vampire A Lusth.fbx"
+            "FBX models/Mutant.fbx","FBX models/Warrok W Kurniawan.fbx", 
+            "FBX models/Vampire A Lusth.fbx","FBX models/Pumpkinhulk L Shaw.fbx"
         ]
         loaded_chars = []
         for path in personagens_mixamo:
@@ -314,8 +314,12 @@ class SceneRenderer:
             # Cor do Céu (Azul de dia, Laranja no por do sol)
             sky_color = glm.mix(glm.vec3(0.9, 0.4, 0.2), glm.vec3(0.5, 0.7, 1.0), intensity)
             # Cor da Luz do Sol (Amarelada/Branca)
-            light_color = glm.vec3(1.0, 0.95, 0.8) * max(intensity, 0.1)
+            light_color = glm.vec3(1.0, 0.95, 0.8) * max(intensity, 0.1) * 1.5
+
+            ambient_strength = 0.4 + (intensity * 0.4)
+
             
+
         else: # Noite
             # A luz vem da LUA
             light_source_pos = moon_pos
@@ -326,10 +330,13 @@ class SceneRenderer:
             sky_color = glm.vec3(0.02, 0.02, 0.05)
             # Luz da Lua (Azulada e fraca)
             light_color = glm.vec3(0.1, 0.1, 0.25)
+
+            ambient_strength = 0.2
+
             
         fog_color = sky_color
         # Retorna: Direção da Luz Ativa, Cor da Luz, Cor do Céu, Cor do Fog, Pos Sol, Pos Lua, Pos Luz Ativa
-        return light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, light_source_pos
+        return light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, light_source_pos, ambient_strength
 
     def handle_input(self, dt):
         for event in pygame.event.get():
