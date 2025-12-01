@@ -314,7 +314,7 @@ class SceneRenderer:
             # Cor do Céu (Azul de dia, Laranja no por do sol)
             sky_color = glm.mix(glm.vec3(0.9, 0.4, 0.2), glm.vec3(0.5, 0.7, 1.0), intensity)
             # Cor da Luz do Sol (Amarelada/Branca)
-            light_color = glm.vec3(1.0, 0.95, 0.8) * max(intensity, 0.1) * 1.5
+            light_color = glm.vec3(1.0, 0.95, 0.8) * max(intensity, 0.1) * 3.5
 
             ambient_strength = 0.4 + (intensity * 0.4)
 
