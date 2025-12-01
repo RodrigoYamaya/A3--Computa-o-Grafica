@@ -388,7 +388,7 @@ class SceneRenderer:
         if self.time_of_day >= 24: self.time_of_day = 0
         
         self.handle_input(dt)
-        light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, active_light_pos = self.update_day_night_cycle()
+        light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, active_light_pos, ambient_strength = self.update_day_night_cycle()
         
         # 1. Shadow Pass
         self.shadow_renderer.render_depth_map(self, active_light_pos)
