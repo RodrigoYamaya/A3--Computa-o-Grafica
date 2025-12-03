@@ -187,7 +187,7 @@ class SceneRenderer:
         # --- Variáveis do Ambiente ---
         self.time_of_day = 8.0
         self.day_speed = 1.0 / 60.0
-        self.fog_density = 0.005
+        self.fog_density = 0.01
         
         # Objetos da cena
         self.terrain = None
@@ -314,7 +314,7 @@ class SceneRenderer:
             # Cor do Céu (Azul de dia, Laranja no por do sol)
             sky_color = glm.mix(glm.vec3(0.9, 0.4, 0.2), glm.vec3(0.5, 0.7, 1.0), intensity)
             # Cor da Luz do Sol (Amarelada/Branca)
-            light_color = glm.vec3(1.0, 0.95, 0.8) * max(intensity, 0.1) * 3.5
+            light_color = glm.vec3(1.0, 0.95, 0.8) * (intensity * 0.7 + 0.2) * 2.5
             
             ambient_strength = 0.6 + (intensity * 0.6)
 
@@ -329,6 +329,7 @@ class SceneRenderer:
             # Céu noturno (Azul escuro profundo)
             sky_color = glm.vec3(0.02, 0.02, 0.05)
             # Luz da Lua (Azulada e fraca)
+            fog_color = glm.vec3(0.5, 0.5, 0.5)
             light_color = glm.vec3(0.1, 0.1, 0.25)
 
             ambient_strength = 0.35
@@ -336,7 +337,7 @@ class SceneRenderer:
             
         fog_color = sky_color
         # Retorna: Direção da Luz Ativa, Cor da Luz, Cor do Céu, Cor do Fog, Pos Sol, Pos Lua, Pos Luz Ativa
-        return light_dir, light_color, sky_color, fog_color, sun_pos, moon_pos, light_source_pos, ambient_strength
+        return glm.normalize(light_dir), light_color, sky_color, fog_color, sun_pos, moon_pos, light_source_pos, ambient_strength
 
     def handle_input(self, dt):
         for event in pygame.event.get():
@@ -381,7 +382,6 @@ class SceneRenderer:
             self.jump_velocity += self.gravity * dt
             if self.camera_pos.y <= self.eye_height:
                 self.camera_pos.y = self.eye_height; self.is_jumping = False; self.on_ground = True; self.jump_velocity = 0
-
     def render(self):
         dt = self.clock.tick(60) / 1000.0
         self.time_of_day += dt * self.day_speed
@@ -425,14 +425,22 @@ class SceneRenderer:
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "projection"), 1, GL_FALSE, glm.value_ptr(proj))
         glUniform3f(glGetUniformLocation(self.shader, "viewPos"), self.camera_pos.x, self.camera_pos.y, self.camera_pos.z)
         
-        # AQUI É O IMPORTANTE: Passamos a direção da luz ATIVA (seja Sol ou Lua)
+        # Passa a direção da luz ativa para o shader
         glUniform3f(glGetUniformLocation(self.shader, "lightDir"), light_dir.x, light_dir.y, light_dir.z)
+        
+        # Passa a cor da luz ativa para o shader
         glUniform3f(glGetUniformLocation(self.shader, "lightColor"), light_color.x, light_color.y, light_color.z)
         
-        glUniform1f(glGetUniformLocation(self.shader, "ambientStrength"), 0.3)
+        # Passa a força da luz ambiente para o shader
+        glUniform1f(glGetUniformLocation(self.shader, "ambientStrength"), ambient_strength)
+        
+        # Passa a cor do nevoeiro para o shader
         glUniform3f(glGetUniformLocation(self.shader, "fogColor"), fog_color.x, fog_color.y, fog_color.z)
+        
+        # Passa a densidade do nevoeiro para o shader
         glUniform1f(glGetUniformLocation(self.shader, "fogDensity"), self.fog_density)
 
+        # Passa a matriz de transformação de luz para o shader
         light_space_matrix = self.shadow_renderer.get_light_space_matrix(active_light_pos)
         glUniformMatrix4fv(glGetUniformLocation(self.shader, "lightSpaceMatrix"), 1, GL_FALSE, glm.value_ptr(light_space_matrix))
         
