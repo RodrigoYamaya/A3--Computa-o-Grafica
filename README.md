@@ -1,130 +1,155 @@
-🌍 Cenário Virtual 3D com OpenGL Avançado
+Cenário Virtual - Computação Gráfica
 
-Um motor de renderização 3D desenvolvido em Python utilizando PyGame e OpenGL Moderno (Core Profile). Este projeto demonstra técnicas avançadas de computação gráfica, incluindo iluminação dinâmica, sombreamento em tempo real e geração de ambiente atmosférico.
+Este projeto implementa um cenário virtual 3D interativo utilizando Python e OpenGL (via PyOpenGL). A aplicação simula um ambiente com ciclo dia/noite, geração de terreno, sombras dinâmicas e renderização de modelos 3D complexos (FBX).
 
-✨ Características Principais
+👨‍💻 Integrantes do Grupo
 
-O projeto implementa uma série de funcionalidades gráficas avançadas para criar um ambiente imersivo:
+Rodrigo Yamaya Gonçalves
 
-🌄 Terreno e Ambiente
+Lucas dos Santos Ottvagen
 
-Carregamento de malhas complexas via arquivos .OBJ.
+Luiz Felippe Almeida Veloso
 
-Texturização de alta resolução.
+🚀 Tecnologias e Técnicas Implementadas
 
-Neblina Volumétrica (Fog) exponencial que se adapta dinamicamente à cor do céu.
+O projeto foi desenvolvido utilizando OpenGL Moderno com shaders programáveis (GLSL). As principais técnicas incluem:
 
-Céu Dinâmico: Transição suave de cores entre amanhecer, dia, entardecer e noite.
+1. Iluminação e Ambiente
 
-💡 Iluminação e Sombras
+Ciclo Dia/Noite Dinâmico: Uma fonte de luz direcional (Sol) orbita a cena. A cor do céu (glClearColor) e da luz ambiente é interpolada dinamicamente baseada na altura do sol.
 
-Ciclo Dia/Noite em Tempo Real: O sol move-se fisicamente no céu, alterando a direção e intensidade da luz.
+Visualização: Renderização de corpos celestes (Sol) e transições suaves entre amanhecer, dia, entardecer e noite.
 
-Shadow Mapping: Sistema de sombras dinâmicas projetadas por todos os objetos e pelo terreno.
+Neblina Volumétrica (Fog): Cálculo exponencial quadrático no Fragment Shader, adaptando-se automaticamente à cor do céu.
 
-Soft Shadows: Implementação de PCF (Percentage-Closer Filtering) para suavizar as bordas das sombras.
+2. Sombras (Shadow Mapping)
 
-Sol e Estrelas Visuais: Renderização de uma esfera solar e um campo estelar que surge ao anoitecer.
+Implementação de Shadow Mapping em dois passos (Depth Map + Renderização da cena).
 
-👥 Personagens e Instancing
+Uso de PCF (Percentage-Closer Filtering) para suavização de bordas.
 
-Suporte para carregamento de modelos animados (formato FBX).
+Correção de Shadow Acne utilizando glCullFace(GL_FRONT) durante a renderização do mapa de sombras.
 
-Sistema de distribuição para renderizar múltiplas instâncias (100+) de personagens sem perda significativa de desempenho.
+3. Terreno e Modelos
 
-Posicionamento inteligente para garantir que os modelos se adaptem ao nível do solo.
+Terreno: Carregamento de malha irregular (.obj) com aplicação de textura difusa.
 
-🎥 Câmera e Controles
+Instancing e FBX: Carregamento de múltiplos personagens animados convertidos para FBX.
 
-Câmera em Primeira Pessoa (FPS) fluida.
+Distribuição Procedural: 100 instâncias distribuídas aleatoriamente com ajustes automáticos de altura (Raycast simulado) para colisão correta com o solo.
 
-Sistema de física com gravidade e colisão com o solo (impede "voar" ou atravessar o chão).
-
-Mecânica de pulo e corrida (Sprint).
-
-🛠️ Tecnologias Utilizadas
-
-Linguagem: Python 3.10+
-
-API Gráfica: OpenGL 3.3+ (Core Profile)
-
-Bibliotecas:
-
-pygame: Gerenciamento de janela e input.
-
-PyOpenGL: Bindings para OpenGL.
-
-PyGLM: Matemática vetorial e matricial (GLSL-style).
-
-numpy: Operações numéricas eficientes.
-
-Pillow: Processamento de texturas.
-
-🚀 Como Executar
+⚙️ Instalação e Dependências
 
 Pré-requisitos
 
-Certifique-se de ter o Python instalado. Instale as dependências com o comando:
+Python 3.10 (Obrigatório devido à compatibilidade do SDK FBX).
+
+1. Bibliotecas Python
+
+Abra o terminal na pasta do projeto e execute:
 
 pip install pygame PyOpenGL PyGLM numpy Pillow
 
 
-Rodando o Projeto
+2. Autodesk FBX Python SDK (Instalação Manual)
 
-Navegue até a pasta raiz do projeto e execute o script principal:
+Para carregar os modelos .fbx, é necessário o SDK oficial da Autodesk.
+
+Acesse o Autodesk Developer Network.
+
+Procure pela seção FBX Python SDK e baixe a versão compatível com seu SO e Python 3.10.
+
+Instale o executável baixado.
+
+Navegue até a pasta de instalação (Ex: C:\Program Files\Autodesk\FBX\FBX Python SDK\2020.3.7).
+
+Abra o terminal nesta pasta e instale o arquivo .whl (wheel):
+
+# Exemplo (o nome do arquivo pode variar):
+python -m pip install fbx_python_sdk_2020.3.7_win_amd64.whl
+
+
+
+▶️ Como Executar
+
+O ponto de entrada da aplicação é o arquivo main.py.
+
+Abra o terminal na raiz do projeto:
 
 cd projeto
+
+
+
+Execute o script principal:
+
 py -3.10 main.py
 
 
+
+Um menu será exibido no terminal. Escolha uma opção:
+
+1: Gerar cena (Executa o spawn_personagens.py para distribuir os modelos).
+
+2: Visualizar cena (Abre a janela OpenGL).
+
+3: Sair.
+
 🎮 Controles
 
-Tecla / Ação
+A aplicação utiliza uma câmera em primeira pessoa (FPS). O mouse é travado na janela para permitir rotação infinita.
 
-Função
+Ação
 
-W, A, S, D
+Tecla / Controle
 
-Mover a câmera (Frente, Esquerda, Trás, Direita)
+Detalhes
 
-Mouse
+Mover Frente/Trás
 
-Olhar ao redor (Yaw / Pitch)
+W / S
 
-SHIFT (Segurar)
+Movimentação no plano XZ (travada no chão).
 
-Correr (Aumenta velocidade)
+Mover Lados
 
-ESPAÇO
+A / D
+
+Movimentação lateral (Strafe).
+
+Correr
+
+SHIFT Esq
+
+Dobra a velocidade de movimento.
 
 Pular
 
-Setas ⬅️ / ➡️
+ESPAÇO
 
-Acelerar/Desacelerar o tempo (Debug do ciclo dia/noite)
+Pulo com gravidade simples (retorno ao y=1.8).
+
+Olhar
+
+Mouse
+
+Rotação da câmera (Yaw/Pitch). Limite vertical de 89°.
+
+Ciclo Dia/Noite
+
+Setas ⬅️ ➡️
+
+Acelera/Desacelera a passagem do tempo.
+
+Sair
 
 ESC
 
-Fechar a aplicação
+Fecha a aplicação.
 
-📂 Estrutura do Projeto
+📂 Estrutura de Arquivos Relevante
 
-main.py: Ponto de entrada da aplicação.
+main.py: Menu principal e gerenciador de execução.
 
-scene_renderer.py: Lógica principal de renderização, ciclo de dia e controle de câmera.
+models/: Contém os arquivos .obj, .fbx e texturas.
 
-shadow_renderer.py: Módulo responsável pela geração do Mapa de Sombras (Shadow Map).
-
-terreno.py: Gerenciamento da malha e texturas do terreno.
-
-shaders/: Contém os códigos GLSL para Vertex e Fragment Shaders.
-
-FBX models/ & Textures/: Ativos gráficos (Modelos 3D e Imagens).
-
-👨‍💻 Autores
-
-[Rodrigo yamaya gonçalves] 
-
-[Lucas dos Santos Ottvagen] 
-
-[Luiz Felippe Almeida Veloso] 
+shaders/: Códigos GLSL para Vertex e Fragment Shaders.
